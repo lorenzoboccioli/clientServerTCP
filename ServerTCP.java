@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.time.LocalDate;
 
 public class ServerTCP {
     ServerSocket server = null;
@@ -42,6 +43,7 @@ public class ServerTCP {
             stringaModificata = stringaRicevuta.toUpperCase();
             System.out.println("7 invio la stringa modificata al client ...");
             outVersoClient.writeBytes(stringaModificata + '\n');
+            outVersoClient.writeBytes(LocalDate.now().toString());
 
             // termina elaborazione sul server : chiudo la connessione del client
             System.out.println("9 SERVER: fine elaborazione  ... buona notte!");
